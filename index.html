@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Foglio orari</title>
+</head>
+<body>
+  <!-- header -->
+  <header class="m_top">
+    <div class="container">
+      <div class="row">
+        <ul class="nav">
+          <li class="nav-item">
+            <label class="nav-item" for="start">Seleziona la data:</label>
+          </li>
+          <li class="nav-item">
+            <input class="nav-item" type="month" id="start" name="start" value="">
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-item btn btn-success" id="select">GO</button>
+          </li>
+          <li class="nav-item">
+            <p class="nav-item">Totale: <span id="somma"></span><button class="btn btn-primary" id="aggiorna">Aggiorna il totale</button></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!--/header -->
+  <!-- main -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Giorno</th>
+              <th scope="col" class="table-success">Entrata AM</th>
+              <th scope="col" class="table-danger">Uscita AM</th>
+              <th scope="col" class="table-success">Entrata PM</th>
+              <th scope="col" class="table-danger">Uscita PM</th>
+              <th scope="col">Somma</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+      </div>
+    </div>
+  </main>
+  <!-- /main -->
+
+  <script id="entry-template" type="text/x-handlebars-template">
+    <tr>
+      <th scope="row">{{day}}</th>
+      <td><input data-attribute="{{id}}"class="first{{id}}" class="table-success" type="time"></td>
+      <td><input data-attribute="{{id}}"class="second{{id}}" class="table-danger" type="time"></td>
+      <td><input data-attribute="{{id}}"class="third{{id}}" class="table-success" type="time"></td>
+      <td><input data-attribute="{{id}}" class="fourth{{id}}" class="table-danger" type="time"></td>
+      <td><span class="result{{id}} risultato">0</span></td>
+    </tr>
+  </script>
+  <!-- jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- momentjs -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment-with-locales.min.js"></script>
+  <!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+  <!-- mainjs -->
+  <script type="text/javascript" src="js/main.js" lang="it"></script>
+</body>
+</html>
