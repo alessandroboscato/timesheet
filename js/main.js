@@ -46,6 +46,17 @@ $(document).ready(function(){
       var x = ((second - first) + (fourth - third)) / 100;
     } else if (!isNaN(first) && !isNaN(second)) {
       var x = (second - first) / 100;
+      var h = Math.floor(x);
+      var m = x % 1;
+      var m = m / 60;
+      var m = m * 100;
+      var hour = h + m;
+
+
+      console.log(h);
+      console.log(m);
+      console.log(hour);
+
     } else if (!isNaN(third) && !isNaN(fourth)) {
       var x = (fourth - third) / 100;
     } else if (!isNaN(first) && !isNaN(fourth)) {
