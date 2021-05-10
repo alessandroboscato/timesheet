@@ -2,7 +2,14 @@ $(document).ready(function(){
 
   $("#select").click(function(){
     var date = new Date($('#start').val());
-    var date = date.getMonth();
+    console.log(date);
+    var myDate = date.split("-");
+
+    var days = function(month,year) {
+       return new Date(year, month, 0).getDate();
+    };
+    console.log("Days in Month: "+days(myDate[1], myDate[0]));
+
     $("#tbody").html("");
     moment.locale("it");
     var startDate = moment(date);
@@ -13,6 +20,7 @@ $(document).ready(function(){
     for (var i = 0; i < daysInMonth; i++){
       var momentDay = moment(firstDay).add(i, "d");
       var day = (moment(momentDay).format("Do dddd"));
+
 
       var context = {
         day: day,
@@ -26,9 +34,8 @@ $(document).ready(function(){
 
     $("input").on("change",function(){
     var currentLine = $(this).attr("data-attribute");
+
     var first = $(".first"+currentLine).val();
-    console.log(first);
-    console.log(moment(first,"hh:mm").format('lll'));
     var first = first.replace(":", "");
     var first = parseInt(first);
 
@@ -54,6 +61,10 @@ $(document).ready(function(){
       var m = m * 100;
       var hour = h + m;
 
+
+      console.log(h);
+      console.log(m);
+      console.log(hour);
 
     } else if (!isNaN(third) && !isNaN(fourth)) {
       var x = (fourth - third) / 100;
