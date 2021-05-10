@@ -27,10 +27,9 @@ $(document).ready(function(){
     $("input").on("change",function(){
     var currentLine = $(this).attr("data-attribute");
     var first = $(".first"+currentLine).val();
-    console.log(first);
-    console.log(moment(first,"hh:mm").format('lll'));
     var first = first.replace(":", "");
     var first = parseInt(first);
+    
 
     var second = $(".second"+currentLine).val();
     var second = second.replace(":", "");
